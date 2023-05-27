@@ -22,6 +22,7 @@ export const InputUsername = styled.input`
   background-color: #fff;
   border: 1px solid #777;
   border-radius: 0.5rem;
+  padding: 0 0.5rem;
 `;
 export const EnterButton = styled.button`
   background-color: #7695ec;
@@ -30,7 +31,9 @@ export const EnterButton = styled.button`
   font-size: 1.1rem;
   font-weight: 700;
   border: none;
-  padding: 0.3rem 2rem;
+  padding: 0.4rem 2rem 0.3rem 2rem;
+  margin-top: 1rem;
   text-transform: uppercase;
   align-self: flex-end;
+  cursor: pointer;
 `;
