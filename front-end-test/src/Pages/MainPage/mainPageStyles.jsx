@@ -14,6 +14,9 @@ export const MainContainer = styled.main`
   flex-grow: 1;
   min-height: 100%;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 `;
 
 export const Header = styled.header`
@@ -22,6 +25,6 @@ export const Header = styled.header`
   padding: 2rem;
 `;
 export const TitleHeader = styled.h1`
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #fff;
 `;
