@@ -6,6 +6,7 @@ import {
   TitleHeader,
 } from "./mainPageStyles";
 import CreatePost from "../../Components/CreatePost/CreatePost";
+import Post from "../../Components/Post/Post";
 
 const MainPage = () => {
   return (
@@ -15,6 +16,8 @@ const MainPage = () => {
       </Header>
       <MainContainer>
         <CreatePost />
+        <Post />
+        <Post />
       </MainContainer>
     </PageBackground>
   );
