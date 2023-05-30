@@ -11,7 +11,7 @@ export const PostContainer = styled.article`
   border-bottom-left-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.5rem;
   padding: 1.5rem;
 `;
 export const TitleContainer = styled.div`
@@ -29,6 +29,25 @@ export const Title = styled.h2`
   color: #fff;
 `;
 export const RemoveAndEditIcons = styled.div`
+  height: 20%;
   display: flex;
+  align-items: center;
+  gap: 1rem;
 `;
-export const Icon = styled.img``;
+export const Icon = styled.img`
+  height: 100%;
+`;
+export const PostInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+export const UserPost = styled.p`
+  color: #777777;
+  font-weight: 700;
+`;
+export const PostTime = styled.p`
+  color: #777777;
+`;
+export const Content = styled.p`
+  line-height: 1.5rem;
+`;

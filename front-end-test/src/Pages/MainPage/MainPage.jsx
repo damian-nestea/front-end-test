@@ -17,6 +17,7 @@ const MainPage = () => {
       <MainContainer>
         <CreatePost />
         <Post />
+        <Post />
       </MainContainer>
     </PageBackground>
   );
