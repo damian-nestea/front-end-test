@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   MainContainer,
   PostContainer,
@@ -13,14 +13,17 @@ import {
 } from "./postStyles";
 import removeIcon from "../../assets/removeIcon.png";
 import editIcon from "../../assets/editIcon.png";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 const Post = () => {
+  const context = useContext(GlobalContext);
+  const { setOpenRemoveModal } = context;
   return (
     <MainContainer>
       <TitleContainer>
         <Title>My First Post at CodeLeap Network!</Title>
         <RemoveAndEditIcons>
-          <Icon src={removeIcon} />
+          <Icon src={removeIcon} onClick={() => setOpenRemoveModal(true)} />
           <Icon src={editIcon} />
         </RemoveAndEditIcons>
       </TitleContainer>

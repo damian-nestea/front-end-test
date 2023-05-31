@@ -7,6 +7,7 @@ import {
 } from "./mainPageStyles";
 import CreatePost from "../../Components/CreatePost/CreatePost";
 import Post from "../../Components/Post/Post";
+import RemoveModal from "../../Components/RemoveModal/RemoveModal";
 
 const MainPage = () => {
   return (
@@ -19,6 +20,7 @@ const MainPage = () => {
         <Post />
         <Post />
       </MainContainer>
+      <RemoveModal />
     </PageBackground>
   );
 };
