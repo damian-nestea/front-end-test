@@ -8,6 +8,7 @@ import {
 import CreatePost from "../../Components/CreatePost/CreatePost";
 import Post from "../../Components/Post/Post";
 import RemoveModal from "../../Components/RemoveModal/RemoveModal";
+import EditModal from "../../Components/EditModal/EditModal";
 
 const MainPage = () => {
   return (
@@ -21,6 +22,7 @@ const MainPage = () => {
         <Post />
       </MainContainer>
       <RemoveModal />
+      <EditModal />
     </PageBackground>
   );
 };

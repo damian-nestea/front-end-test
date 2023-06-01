@@ -17,14 +17,14 @@ import { GlobalContext } from "../../contexts/GlobalContext";
 
 const Post = () => {
   const context = useContext(GlobalContext);
-  const { setOpenRemoveModal } = context;
+  const { setOpenRemoveModal, setOpenEditModal } = context;
   return (
     <MainContainer>
       <TitleContainer>
         <Title>My First Post at CodeLeap Network!</Title>
         <RemoveAndEditIcons>
           <Icon src={removeIcon} onClick={() => setOpenRemoveModal(true)} />
-          <Icon src={editIcon} />
+          <Icon src={editIcon} onClick={() => setOpenEditModal(true)} />
         </RemoveAndEditIcons>
       </TitleContainer>
       <PostContainer>
