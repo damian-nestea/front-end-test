@@ -14,14 +14,15 @@ import {
 import removeIcon from "../../assets/removeIcon.png";
 import editIcon from "../../assets/editIcon.png";
 import { GlobalContext } from "../../contexts/GlobalContext";
+import moment from "moment/moment";
 
 const Post = ({ post }) => {
   const context = useContext(GlobalContext);
   const { setOpenRemoveModal, setOpenEditModal } = context;
 
-  const today = new Date();
-  const postDate = new Date(post.created_datetime)
-  console.log(postDate - today)
+  const postDate = new Date(post.created_datetime);
+  const postTimeAgo = moment.utc(postDate).local().startOf("seconds").fromNow();
+
   return (
     <MainContainer>
       <TitleContainer>
@@ -34,7 +35,7 @@ const Post = ({ post }) => {
       <PostContainer>
         <PostInfo>
           <UserPost>{post.username}</UserPost>
-          <PostTime>{post.created_datetime}</PostTime>
+          <PostTime>{postTimeAgo}</PostTime>
         </PostInfo>
         <Content>{post.content}</Content>
       </PostContainer>
