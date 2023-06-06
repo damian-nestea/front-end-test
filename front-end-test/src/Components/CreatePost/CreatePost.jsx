@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
   Container,
   CreateButton,
@@ -7,16 +7,40 @@ import {
   PostTitleInput,
   TitleCreatePost,
 } from "./createPostStyles";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 const CreatePost = () => {
+  const context = useContext(GlobalContext);
+  const { createPost } = context;
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
   return (
     <Container>
       <TitleCreatePost>What's on your mind?</TitleCreatePost>
       <Label>Title</Label>
-      <PostTitleInput />
+      <PostTitleInput
+        value={title}
+        onChange={(e) => {
+          setTitle(e.target.value);
+        }}
+      />
       <Label>Content</Label>
-      <PostContentInput />
-      <CreateButton>Entrar</CreateButton>
+      <PostContentInput
+        value={content}
+        onChange={(e) => {
+          setContent(e.target.value);
+        }}
+      />
+      <CreateButton
+        onClick={() => {
+          createPost("Damian", title, content);
+          setTitle("");
+          setContent("");
+        }}
+      >
+        Create
+      </CreateButton>
     </Container>
   );
 };

@@ -36,6 +36,7 @@ export const RemoveAndEditIcons = styled.div`
 `;
 export const Icon = styled.img`
   height: 100%;
+  cursor: pointer;
 `;
 export const PostInfo = styled.div`
   display: flex;
