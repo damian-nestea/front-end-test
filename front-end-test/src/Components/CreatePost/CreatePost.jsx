@@ -11,7 +11,7 @@ import { GlobalContext } from "../../contexts/GlobalContext";
 
 const CreatePost = () => {
   const context = useContext(GlobalContext);
-  const { createPost } = context;
+  const { createPost, username } = context;
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -34,7 +34,7 @@ const CreatePost = () => {
       />
       <CreateButton
         onClick={() => {
-          createPost("Damian", title, content);
+          createPost(username, title, content);
           setTitle("");
           setContent("");
         }}

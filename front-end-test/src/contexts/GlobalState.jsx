@@ -7,6 +7,8 @@ const GlobalState = ({ children }) => {
 
   const [postList, setPostList] = useState([]);
 
+  const [username, setUsername] = useState("");
+
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -48,6 +50,8 @@ const GlobalState = ({ children }) => {
     setOpenEditModal,
     postList,
     createPost,
+    username,
+    setUsername,
   };
   return (
     <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>
