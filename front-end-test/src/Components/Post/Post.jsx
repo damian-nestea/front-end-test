@@ -18,7 +18,7 @@ import moment from "moment/moment";
 
 const Post = ({ post }) => {
   const context = useContext(GlobalContext);
-  const { setOpenRemoveModal, setOpenEditModal } = context;
+  const { setOpenRemoveModal, setOpenEditModal, username } = context;
 
   const postDate = new Date(post.created_datetime);
   const postTimeAgo = moment.utc(postDate).local().startOf("seconds").fromNow();
@@ -27,10 +27,12 @@ const Post = ({ post }) => {
     <MainContainer>
       <TitleContainer>
         <Title>{post.title}</Title>
-        <RemoveAndEditIcons>
-          <Icon src={removeIcon} onClick={() => setOpenRemoveModal(true)} />
-          <Icon src={editIcon} onClick={() => setOpenEditModal(true)} />
-        </RemoveAndEditIcons>
+        {username === post.username && (
+          <RemoveAndEditIcons>
+            <Icon src={removeIcon} onClick={() => setOpenRemoveModal(true)} />
+            <Icon src={editIcon} onClick={() => setOpenEditModal(true)} />
+          </RemoveAndEditIcons>
+        )}
       </TitleContainer>
       <PostContainer>
         <PostInfo>
