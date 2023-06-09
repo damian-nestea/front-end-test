@@ -14,7 +14,7 @@ import { GlobalContext } from "../../contexts/GlobalContext";
 
 const EditModal = () => {
   const context = useContext(GlobalContext);
-  const { openEditModal, setOpenEditModal } = context;
+  const { openEditModal, setOpenEditModal} = context;
 
   if (openEditModal) {
     return (
