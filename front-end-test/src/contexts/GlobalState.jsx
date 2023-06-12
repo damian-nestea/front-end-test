@@ -45,9 +45,31 @@ const GlobalState = ({ children }) => {
   };
 
   const editPost = async (id, title, content) => {
+    console.log(id, title, content);
     if (title && content) {
+      try {
+        const response = await fetch(
+          `https://dev.codeleap.co.uk/careers/${id}/`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify({
+              username: username,
+              title: title,
+              content: content,
+            }),
+          }
+        );
+        if (response.ok) {
+          fetchPosts();
+        }
+      } catch (error) {
+        console.log(error);
+      }
     } else {
-      alert("Please, type the Title and Content of your post!");
+      alert("Please, type a valid Title and Content of your post!");
     }
   };
 
@@ -58,9 +80,8 @@ const GlobalState = ({ children }) => {
         await fetch(`https://dev.codeleap.co.uk/careers/${id}/`, {
           method: "DELETE",
         }).then((response) => {
-          response.json();
           fetchPosts();
-          alert("Post deleted succesfully!");
+          alert("Post deleted succesfully!", response);
         });
       } catch (error) {
         console.log(error.response);
