@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   Label,
   ModalBackground,
@@ -14,22 +14,36 @@ import { GlobalContext } from "../../contexts/GlobalContext";
 
 const EditModal = () => {
   const context = useContext(GlobalContext);
-  const { openEditModal, setOpenEditModal } = context;
-
+  const { openEditModal, setOpenEditModal, choosenPost, editPost } = context;
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   if (openEditModal) {
     return (
       <ModalBackground>
         <ModalContainer>
           <Title>Edit Item</Title>
           <Label>Title</Label>
-          <TitleInput />
+          <TitleInput
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
           <Label>Content</Label>
-          <ContentInput />
+          <ContentInput
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
           <ButtonsContainer>
             <CancelBtn onClick={() => setOpenEditModal(false)}>
               Cancel
             </CancelBtn>
-            <SaveBtn>Save</SaveBtn>
+            <SaveBtn
+              onClick={() => {
+                editPost(choosenPost.id, title, content);
+                title && content ? setOpenEditModal(false): null;
+              }}
+            >
+              Save
+            </SaveBtn>
           </ButtonsContainer>
         </ModalContainer>
       </ModalBackground>

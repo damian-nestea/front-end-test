@@ -6,6 +6,9 @@ const GlobalState = ({ children }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
 
   const [postList, setPostList] = useState([]);
+  const [choosenPost, setChoosenPost] = useState({});
+
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     fetchPosts();
@@ -41,6 +44,53 @@ const GlobalState = ({ children }) => {
     }
   };
 
+  const editPost = async (id, title, content) => {
+    console.log(id, title, content);
+    if (title && content) {
+      try {
+        const response = await fetch(
+          `https://dev.codeleap.co.uk/careers/${id}/`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify({
+              username: username,
+              title: title,
+              content: content,
+            }),
+          }
+        );
+        if (response.ok) {
+          fetchPosts();
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("Please, type a valid Title and Content of your post!");
+    }
+  };
+
+  const deletePost = async (id) => {
+    console.log(id);
+    if (id) {
+      try {
+        await fetch(`https://dev.codeleap.co.uk/careers/${id}/`, {
+          method: "DELETE",
+        }).then((response) => {
+          fetchPosts();
+          alert("Post deleted succesfully!", response);
+        });
+      } catch (error) {
+        console.log(error.response);
+      }
+    } else {
+      alert("Invalid requisition.");
+    }
+  };
+
   const data = {
     openRemoveModal,
     setOpenRemoveModal,
@@ -48,6 +98,12 @@ const GlobalState = ({ children }) => {
     setOpenEditModal,
     postList,
     createPost,
+    username,
+    setUsername,
+    editPost,
+    choosenPost,
+    setChoosenPost,
+    deletePost,
   };
   return (
     <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>
