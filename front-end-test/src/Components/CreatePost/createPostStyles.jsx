@@ -46,4 +46,8 @@ export const CreateButton = styled.button`
   margin-top: 1rem;
   align-self: flex-end;
   cursor: pointer;
+  :disabled {
+    opacity: 0.7;
+    cursor: auto;
+  }
 `;

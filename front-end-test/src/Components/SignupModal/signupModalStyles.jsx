@@ -36,4 +36,8 @@ export const EnterButton = styled.button`
   text-transform: uppercase;
   align-self: flex-end;
   cursor: pointer;
+  :disabled {
+    opacity: 0.7;
+    cursor: auto;
+  }
 `;

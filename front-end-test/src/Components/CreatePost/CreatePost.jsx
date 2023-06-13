@@ -33,6 +33,7 @@ const CreatePost = () => {
         }}
       />
       <CreateButton
+        disabled={!(title && content)}
         onClick={() => {
           createPost(username, title, content);
           setTitle("");
