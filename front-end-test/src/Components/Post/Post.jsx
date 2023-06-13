@@ -28,7 +28,7 @@ const Post = ({ post }) => {
 
   const postDate = new Date(post.created_datetime);
   const postTimeAgo = moment.utc(postDate).local().startOf("seconds").fromNow();
-  
+
   return (
     <MainContainer>
       <TitleContainer>

@@ -73,7 +73,6 @@ const GlobalState = ({ children }) => {
   };
 
   const deletePost = async (id) => {
-    console.log(id);
     if (id) {
       try {
         await fetch(`https://dev.codeleap.co.uk/careers/${id}/`, {
