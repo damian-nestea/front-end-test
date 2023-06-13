@@ -39,7 +39,11 @@ const EditModal = () => {
             <SaveBtn
               onClick={() => {
                 editPost(choosenPost.id, title, content);
-                title && content ? setOpenEditModal(false): null;
+                if (title && content) {
+                  setOpenEditModal(false);
+                  setTitle("");
+                  setContent("");
+                }
               }}
             >
               Save
