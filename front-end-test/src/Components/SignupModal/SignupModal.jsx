@@ -27,6 +27,7 @@ const SignupModal = () => {
         }}
       />
       <EnterButton
+        disabled={!username}
         onClick={() =>
           username === validUsername
             ? GoToMainPage(navigate)

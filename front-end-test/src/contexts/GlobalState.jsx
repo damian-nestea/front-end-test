@@ -45,7 +45,6 @@ const GlobalState = ({ children }) => {
   };
 
   const editPost = async (id, title, content) => {
-    console.log(id, title, content);
     if (title && content) {
       try {
         const response = await fetch(
