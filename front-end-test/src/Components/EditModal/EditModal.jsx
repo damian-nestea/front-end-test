@@ -33,7 +33,11 @@ const EditModal = () => {
             onChange={(e) => setContent(e.target.value)}
           />
           <ButtonsContainer>
-            <CancelBtn onClick={() => setOpenEditModal(false)}>
+            <CancelBtn
+              onClick={() => {
+                setOpenEditModal(false);
+              }}
+            >
               Cancel
             </CancelBtn>
             <SaveBtn
